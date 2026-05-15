@@ -24,7 +24,7 @@ EOF
     sudo yum install --assumeyes cfengine-community
     sudo yum install --assumeyes pipx
     sudo yum install --assumeyes shred
-elif [ -d /etc/apt.sources.d ]; then
+elif [ -d /etc/apt/sources.list.d ]; then
     export DEBIAN_FRONTEND=noninteractive
     if ! [ -x "$(command -v wget)" ]; then
         sudo apt update
