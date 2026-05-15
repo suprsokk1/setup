@@ -34,7 +34,7 @@ elif [ -d /etc/apt.sources.d ]; then
     gpg --show-key --with-fingerprint ./cfengine.asc
     sudo mv ./cfengine.asc /etc/apt/trusted.gpg.d/
     echo "deb https://cfengine-package-repos.s3.amazonaws.com/pub/apt/packages stable main" > \
-        /etc/apt/sources.list.d/cfengine-community.list
+        /etc/apt/sources.list/cfengine-community.list
     apt update
     apt-get install -qqy cfengine-community
     apt-get install -qqy pipx
