@@ -27,18 +27,17 @@ EOF
 elif [ -d /etc/apt.sources.d ]; then
     export DEBIAN_FRONTEND=noninteractive
     if ! [ -x "$(command -v wget)" ]; then
-        apt update
-        apt-get install -qqy wget
+        sudo apt update
+        sudo apt-get install -qqy wget
     fi
     wget -q -O cfengine.asc https://cfengine-package-repos.s3.amazonaws.com/pub/gpg.key
-    gpg --show-key --with-fingerprint ./cfengine.asc
     sudo mv ./cfengine.asc /etc/apt/trusted.gpg.d/
     echo "deb https://cfengine-package-repos.s3.amazonaws.com/pub/apt/packages stable main" > \
         /etc/apt/sources.list/cfengine-community.list
-    apt update
-    apt-get install -qqy cfengine-community
-    apt-get install -qqy pipx
-    apt-get install -qqy shred
+    sudo apt update
+    sudo apt-get install -qqy cfengine-community
+    sudo apt-get install -qqy pipx
+    sudo apt-get install -qqy shred
 
 else
     exit
